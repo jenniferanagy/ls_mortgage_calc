@@ -1,0 +1,8 @@
+welcome: "Welcome to the Mortgage Loan Calculator."
+user_instructions: "Please input the following to determine your monthly mortgage payment."
+user_mortgage_amt: "Please enter the total mortgage amount (only numbers, no commas)."
+user_mortgage_years: "Please enter the duration of your mortgage in years (example '15')."
+user_apr: "Please enter your Annual Interest Rate (APR) (example '4.95')."
+invalid_input: "Invalid number. Please try again"
+again?: "Would you like to use the calculator again ('y' if yes, 'n' if no)?"
+goodbye: "Thank you for using the Mortgage Loan Calculator. Goodbye"
