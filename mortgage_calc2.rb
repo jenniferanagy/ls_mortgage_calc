@@ -3,7 +3,7 @@ MESSAGES = YAML.load_file('mortgage_calc2.yml')
 
 # define methods
 def prompt(message)
-  puts("#{message}")
+  puts message.to_s
 end
 
 def welcome_message
@@ -28,9 +28,9 @@ def get_mortgage_amt
     if valid_number(amt_input)
       prompt("=> You have entered $#{format('%.2f', amt_input)}")
       break
-    else  
+    else
       prompt(MESSAGES['invalid_input'])
-    end 
+    end
   end
   amt_input
 end
@@ -44,7 +44,7 @@ def get_mortgage_years
       prompt("=> You have entered #{format('%.1f', years_input)} years")
       break
     else
-      prompt(MESSAGES['invalid_input']) 
+      prompt(MESSAGES['invalid_input'])
     end
   end
   years_input
@@ -57,7 +57,7 @@ def get_user_apr
     rate_input = gets.chomp.to_f
     if valid_rate(rate_input)
       puts "=> You have entered #{rate_input}% APR"
-      break 
+      break
     else
       prompt(MESSAGES['invalid_input'])
     end
@@ -73,17 +73,13 @@ def calculate_monthly_payment(amt, rate, duration)
   end
 end
 
-def again?_answer
-  
-end
-
 # begin code
 system('clear')
 
 prompt(welcome_message)
 sleep(2)
 
-loop do #main loop begin
+loop do # main loop begin
   mortgage_amt = get_mortgage_amt()
 
   prompt("")
@@ -93,17 +89,18 @@ loop do #main loop begin
   prompt("")
 
   user_apr = get_user_apr()
-  
+
   prompt("")
 
   mortgage_months = mortgage_years * 12
-  
+
   month_interest_rate = (user_apr / 100) / 12
 
   prompt("")
-  
-  monthly_payment = calculate_monthly_payment(mortgage_amt, month_interest_rate, mortgage_months)
-  
+
+  monthly_payment = calculate_monthly_payment(mortgage_amt, month_interest_rate,
+                                              mortgage_months)
+
   sleep(1)
   prompt("=> Your monthly payment is: $#{format('%.2f', monthly_payment)}")
 
